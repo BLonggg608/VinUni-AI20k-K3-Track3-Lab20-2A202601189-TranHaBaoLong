@@ -25,7 +25,7 @@ class ResearcherAgent(BaseAgent):
 
         # Search for sources
         search_client = SearchClient()
-        sources = search_client.search(query, max_sources=max_sources)
+        sources = search_client.search(query, max_sources)
 
         state.sources = sources
         state.add_trace_event("researcher_sources", {"count": len(sources)})

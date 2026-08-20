@@ -81,7 +81,9 @@ class MultiAgentWorkflow:
         graph = self.build()
         compiled = graph.compile()
         logger.info("Starting multi-agent workflow")
-        result = compiled.invoke(state)
+        result_dict = compiled.invoke(state)
+        # Convert dict back to Pydantic model
+        result = ResearchState.model_validate(result_dict)
         logger.info(
             "Workflow complete. iterations=%d, route_history=%s",
             result.iteration,

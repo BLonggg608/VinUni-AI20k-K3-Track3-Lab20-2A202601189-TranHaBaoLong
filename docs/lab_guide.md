@@ -113,5 +113,18 @@ Cách khắc phục (chọn 1 trong 3):
 
 Mỗi nhóm trả lời 2 câu:
 
-1. Case nào nên dùng multi-agent? Vì sao?
-2. Case nào không nên dùng multi-agent? Vì sao?
+1. **Case nào nên dùng multi-agent? Vì sao?**
+
+   Multi-agent nên dùng khi query phức tạp đòi hỏi nhiều bước xử lý riêng biệt
+   (search → analysis → writing), khi cần trace/debug được từng agent để xác định
+   lỗi ở đâu, hoặc khi quality và độ chính xác quan trọng hơn latency và cost.
+   Ví dụ: research assistant tổng hợp tài liệu, hệ thống yêu cầu citation có nguồn gốc,
+   chatbot cần giải thích được "vì sao câu trả lời này đúng".
+
+2. **Case nào không nên dùng multi-agent? Vì sao?**
+
+   Không nên dùng khi query đơn giản chỉ cần một câu trả lời ngắn gọn
+   (ví dụ: "What is X?"), khi latency là yếu tố quan trọng nhất (chat real-time),
+   hoặc khi cost-per-query bị giới hạn nghiêm ngặt. Multi-agent tốn ~3× tokens
+   so với single-agent, nên chỉ dùng khi lợi ích về quality/traceability thực
+   sự đáng giá chi phí bổ sung.
